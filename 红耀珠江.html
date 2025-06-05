@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=极">
+    <title>红耀珠江 - 汕尾市海丰县鹅埠镇田寮寮村红色文化展示</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #8b0000 0%, #600000 50%, #8b0000 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 15%),
+                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 15%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 极 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+            z-index: -1;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            border-radius: 2极;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+            color: #ffd700;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .party-emblem {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 3rem;
+            color: rgba(255, 215, 0, 0.7);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: linear-gradient(145deg, rgba(140, 0, 0, 0.8), rgba(100, 0, 0, 0.9));
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 0, 0, 0.6);
+            border-color: rgba(255, 215, 0, 0.6);
+        }
+        
+        .card-header {
+            padding: 25px;
+            background: rgba(90, 0, 0, 0.9);
+            position: relative;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .card-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .card-header .icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.8rem;
+            color: rgba(255, 215, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #b30000, #8b0000);
+            color: #ffd700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .card-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: rgba(50, 0, 0, 0.6);
+            line-height: 1.8;
+        }
+        
+        .card.active .card-content {
+            max-height: 2000px;
+            padding: 30px;
+        }
+        
+        .card-content h4 {
+            color: #ffd700;
+            margin: 20px 0 15px;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 8px;
+            position: relative;
+        }
+        
+        .card-content h4::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #ffd700;
+        }
+        
+        .card-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .card-content ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .card-content li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .card-content li::before {
+            content: "•";
+            color: #ffd700;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            top: -5px;
+        }
+        
+        .card-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(70, 0, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .card-content th, .card-content td {
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .card-content th {
+            background: rgba(120, 0, 0, 0.7);
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: #ffd700;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "★";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: #ffd700;
+            background: #8b0000;
+            padding: 0 20px;
+        }
+        
+        .red-ribbon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: repeating-linear-gradient(
+                45deg,
+                #b30000,
+                #b30000 20px,
+                #ffd700 20px,
+                #极d700 40px
+            );
+            z-index: 5;
+        }
+        
+        .red-star {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 215, 0, 0.7);
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .theme-banner {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #b30000, #8b0000);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #ffd700;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            z-index: 10;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .close-content {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            background: rgba(90, 0, 0, 0.7);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .close-content:hover {
+            background: rgba(120, 0, 0, 0.9);
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="red-ribbon"></div>
+    <div class="party-emblem">☭</div>
+    
+    <div class="theme-banner">
+        <i class="fas fa-star"></i> 红耀珠江 <i class="fas fa-star"></i>
+    </div>
+    
+    <div class="header">
+        <h1>红耀珠江</h1>
+        <p>汕尾市海丰县鹅埠镇田寮寮村红色文化调研</p>
+    </div>
+    
+    <div class="container">
+        <div class="cards-container">
+            <!-- 基本情况卡片 -->
+            <div class="card">
+                <div class="card-badge">基础信息</div>
+                <div class="card-header">
+                    <h3>基本情况</h3>
+                    <i class="icon fas fa-home"></i>
+                </div>
+                <div class="card-content">
+                    <h4>人口情况</h4>
+                    <p>根据2025年5月24日"南方+"发布的信息，深圳市深汕特别合作区鹅埠街道东部的田寮寮村，共有三个区(自然村),一共一千多户村民。是一个仅有3个村民小组、600人的小村落。</p>
+                    
+                    <h4>面积</h4>
+                    <p>目前公开资料显示，鹅埠镇田寮寮村面积为1.5平方公里。该数据来源于百度百科及地名网等，截至2023年7月信息未变。</p>
+                    
+                    <h4>地理位置</h4>
+                    <p>田寮寮村位于深汕特别合作区鹅埠街道东部，地理位置优越，交通便利，是连接汕尾与深圳的重要节点。</p>
+                    
+                    <h4>历史沿革</h4>
+                    <p>田寮寮村有着悠久的革命历史传统，是海陆丰革命老区的重要组成部分，在革命战争年代为革命事业做出了重要贡献。</p>
+                    <div class="close-content">关闭</div>
+                </div>
+            </div>
+            
+            <!-- 产业特色卡片 -->
+            <div class="card">
+                <div class="card-badge">经济发展</div>
+                <div class="card-header">
+                    <h3>产业特色</h3>
+                    <i class="icon fas fa-industry"></i>
+                </div>
+                <div class="card-content">
+                    <h4>村企合作项目</h4>
+                    <p>2019年11月，占地约40多亩的"建材一条街"智安居建材家居广场拔地而起。该项目总投资1.35亿元，由田寮寮村与深汕城投集团合作开发打造。智安居合作期为15年，前15年由企业运营，每年企业会以租金的形式逐年向村集体返利，15年后土地和物业则返还极村集体。</p>
+                    
+                    <h4>土地征收与租金收入</h4>
+                    <p>田寮寮村是深汕特别合作区全区第一批完成土地整备的村庄，村民通过"一户一宅"政策，每户每年能收到十几万元的租金。</p>
+                    
+                    <h4>高新科技，年轻企业集聚</h4>
+                    <p>鹅埠镇是深汕合作区的先进制造集聚区，田寮寮村周边集聚了一批新一代信息技术、新能源、新材料、智能装备制造等高新科技企业，如好兄弟声学公司等，为村民提供了就业机会和产业发展机遇。</p>
+                    
+                    <h4>传统农业基础</h4>
+                    <p>历史上田寮寮村每家每户以零散的农业种植为生，虽然目前在产业结构中所占比重可能有所下降，但农业依然是一部分村民的收入来源之一。</p>
+                    
+                    <h4>农业产业化助力</h4>
+                    <p>海崇公司是广东省汕尾市目前唯一一家国家级农业扶贫龙头企业。2003年，蔡锡亮将公司总部搬到田寮寮村广汕公路旁，占地30万平方米。公司从事肉食品产、供、销"一条龙"业务，带动村民搞肉猪养殖。</p>
+                    <div class="close-content">关闭</div>
+                </div>
+            </div>
+            
+            <!-- 民俗风情卡片 -->
+            <div class="card">
+                <div class="card-badge">传统文化</div>
+                <div class="card-header">
+                    <h3>民俗风情</h3>
+                    <i class="icon fas fa-dragon"></i>
+                </div>
+                <div class="card-content">
+                    <h4>龙舟文化</h4>
+                    <p>田寮寮村的"龙舟景"民俗有百年历史，每逢农历五月初六举行"龙船拜会"活动。当天，出嫁女会挑着节日礼品回娘家探节，亲戚朋友相聚，家家户户招待宾客，热闹非凡。</p>
+                    
+                    <h4>传统仪式</h4>
+                    <p>龙舟下水仪式虽历经变迁程序有所简化，但仍寄托着村民祈求平安、顺利的美好寓意，凝聚着团结向上的乡风民风。</p>
+                    
+                    <h4>红色民俗</h4>
+                    <p>田寮寮村结合红色文化，创新性地将革命历史元素融入传统民俗活动中，如在龙舟上装饰红色旗帜，在节日期间讲述革命故事等，形成了独具特色的红色民俗文化。</p>
+                    
+                    <h4>非遗传承</h4>
+                    <p>村中保留了许多传统手工艺，如竹编、木雕等，近年来在政府的支持下，这些传统技艺得到了保护和传承，并与红色文化相结合，开发出具有革命历史主题的文创产品。</p>
+                    <div class="close-content">关闭</div>
+                </div>
+            </div>
+            
+            <!-- 村容村貌卡片 -->
+            <div class="card">
+                <div class="card-badge">环境建设</div>
+                <div class="card-header">
+                    <h3>村容村貌</h3>
+                    <i class="icon fas fa-tree"></i>
+                </div>
+                <div class="card-content">
+                    <h4>人居环境提升</h4>
+                    <p>田寮寮村是合作区乡村振兴计划八大精品示范村之一，按照精品村定位实施人居环境提升。村里宽阔平整的水泥道路两侧绿树成廊，稻田和果园交织，房屋错落有致。</p>
+                    
+                    <h4>基础设施建设</h4>
+                    <p>建公园、治理管线、建设垃圾站、推进雨污分流，田寮寮村作为合作区乡村振兴计划八大精品示范村之一，按照精品村定位实施人居环境提升。</p>
+                    
+                    <p>"村子里的许多基础设施都得到完善，现在村里有定点垃圾站，村道上再也不会堆放垃圾，还有公厕、花园、消防站，并且还拆除了旧村并新建了党建公园"</极>
+                    
+                    <h4>红色文化景观</h4>
+                    <p>村内建设了红色文化长廊、革命历史墙绘、英烈事迹展示区等红色文化景观，将革命历史元素融入村容村貌建设中，营造浓厚的红色文化氛围。</p>
+                    
+                    <h4>生态保护</h4>
+                    <p>田寮寮村注重生态环境保护，实施垃圾分类处理，建设生态湿地，保护古树名木，打造"红色引领、绿色发展"的美丽乡村。</p>
+                    <div class="close-content">关闭</div>
+                </div>
+            </div>
+            
+            <!-- 村民生活卡片 -->
+            <div class="card">
+                <div class="card-badge">民生改善</div>
+                <div class="card-header">
+                    <h3>村民生活</h3>
+                    <i class="icon fas fa-users"></i>
+                </div>
+                <div class="card-content">
+                    <h4>就业与收入</h4>
+                    <p>田寮寮村毗邻工业园区，不少村民就业于周边的各家企业。同时，村子基础设施不断完善，党群服务中心设有四点半学校、图书阅览室等，为村民提供了学习、娱乐和休闲的场所。</p>
+                    
+                    <h4>青年返乡创业</h4>
+                    <p>在田寮寮村党群服务中心右侧，有一家动漫主题的闲寮寮茶饮，店主Billy去年从打拼了多年的一线城市返乡，开了这家咖啡店，碎石子的露营风装修、饱含动漫元素的摆饰……在社交平台上，闲寮寮茶饮被称为"氛围感咖啡馆"。</p>
+                    
+                    <h4>文化娱乐活动</h4>
+                    <p>村内定期举办红色电影放映、革命故事会、红歌比赛等文化活动，丰富村民的精神文化生活。同时，建有健身广场、篮球场等体育设施，满足村民的健身需求。</p>
+                    
+                    <h4>教育医疗</h4>
+                    <p>田寮寮村建有标准化卫生室，配备基本医疗设备和药品，满足村民基本医疗需求。村内设有幼儿园，并与周边学校建立合作关系，保障适龄儿童接受良好教育。</p>
+                    <div class="close-content">关闭</div>
+                </div>
+            </div>
+            
+            <!-- 基层组织与治理卡片 -->
+            <div class="card">
+                <div class="card-badge">党建引领</div>
+                <div class="card-header">
+                    <h3>基层组织与治理</h3>
+                    <i class="icon fas fa-landmark"></i>
+                </div>
+                <div class="card-content">
+                    <h4>党建引领</h4>
+                    <p>田寮寮村坚持党建引领，党群服务中心是全区首个基层党建标准化建设示范点。村"两委"利用党群服务中心、新时代文明实践站所等阵地，联合各类志愿者力量，积极开展移风易俗、培育践行主流价值观等活动。</p>
+                    
+                    <h4>民主管理</h4>
+                    <p>通过落实"三会一课""四议两公开"等制度，让党员群众参与到村级事务中来。村干部实行责任分工到组、管理到人，形成合力共事的良好局面。</p>
+                    
+                    <h4>创新治理模式</h4>
+                    <p>此外，田寮寮村还积极探索村庄小区式管理，成立了物业管理公司，负责公园管养维护，并可投标周边企业物业管理，以壮大村集体经济。</p>
+                    
+                    <h4>党员先锋作用</h4>
+                    <p>村党支部设立党员责任区、党员示范岗，组织党员开展志愿服务、结对帮扶等活动，充分发挥党员在乡村振兴中的先锋模范作用。</p>
+                    <div class="close-content">关闭</div>
+                </div>
+            </div>
+            
+            <!-- 红色文化政策卡片 -->
+            <div class="card">
+                <div class="card-badge">政策支持</div>
+                <div class="card-header">
+                    <h3>红色文化政策</h3>
+                    <i class="icon fas fa-file-contract"></i>
+                </div>
+                <div class="card-content">
+                    <h4>国家与地方政策支持</h4>
+                    <p>《关于新时代支持革命老区振兴发展的意见》(国发[2021]3号)明确支持海陆丰革命老区深度参与粤港澳大湾区建设，推动红色资源保护与乡村振兴融合。</p>
+                    <p>《汕尾市革命老区红色资源保护条例》(2020年施行)是全省首部红色资源保护法规，要求对革命遗址分级管理，明确财政资金常态化投入机制。</p>
+                    
+                    <h4>鹅埠镇的特殊定位</h4>
+                    <p>鹅埠镇作为合作区起步区，由深圳直接管理，享有"特区+老区"双重政策。产业融合方面引进比亚迪等企业形成新能源产业集群；权限下放方面有448项县级执法权限下放至镇街。</p>
+                    
+                    <h4>重点项目与资金支持</h4>
+                    <table>
+                        <tr>
+                            <th>项目类型</th>
+                            <th>案例与田寮寮村关联</th>
+                            <th>资金来源</th>
+                        </tr>
+                        <tr>
+                            <td>遗址保护开发</td>
+                            <td>9处省级红色项目获扶持，田寮寮村可申报县级保护名录</td>
+                            <td>省级专项资金4000万</td>
+                        </tr>
+                        <tr>
+                            <td>基础设施升级</td>
+                            <td>深汕合作区投入1.5亿元建设滨海走廊，优化鹅埠镇交通网络</td>
+                            <td>深圳-汕尾共建资金</td>
+                        </tr>
+                        <tr>
+                            <td>双拥与退役军人参与</td>
+                            <td>打造"双拥一条街"、老兵工作室，退役军人可参与红色文旅管理</td>
+                            <td>市级财政和社会资本</td>
+                        </tr>
+                    </table>
+                    <div class="close-content">关闭</div>
+                </div>
+            </div>
+            
+            <!-- 红色革命历史卡片 -->
+            <div class="card">
+                <div class="card-badge">革命历史</div>
+                <div class="card-header">
+                    <h3>红色革命历史</h3>
+                    <i class="icon fas fa-monument"></i>
+                </div>
+                <div class="card-content">
+                    <h4>彭湃与农民运动</h4>
+                    <p>彭湃(1896-1929)是海丰农民运动的领袖，1922年成立中国首个农会组织"六人农会"，当众烧毁自家地契。彭湃故居位于海丰县龙津东岸，是其出生地及早期革命策源地。</p>
+                    
+                    <h4>中国首个苏维埃政权</h4>
+                    <p>1927年11月在海丰成立中国首个苏维埃政权。红宫(原孔庙大成殿)是召开工农兵代表大会的场所，红场是庆祝政权成立的集会地点，可容纳5万人。</p>
+                    
+                    <h4>重要革命遗址</h4>
+                    <ul>
+                        <li>赤山约农会旧址：中国第一个有组织的农会(1922年7月成立)</li>
+                        <li>海丰总农会旧址：全国首个县级农会(1923年1月成立)</li>
+                        <li>中峒革命根据地：红二师师部驻地</li>
+                        <li>海丰革命烈士陵园：安葬彭湃等347位烈士</li>
+                    </ul>
+                    <div class="close-content">关闭</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>汕尾市海丰县鹅埠镇田寮寮村红色文化调研报告 © 2025</p>
+        <p>传承红色基因，助力乡村振兴</p>
+    </div>
+
+    <script>
+        // 添加随机红星装饰
+        function addRedStars() {
+            const container = document.body;
+            const starCount = 15;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('red-star');
+                star.innerHTML = '★';
+                
+                // 随机位置
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                
+                star.style.left = `${left}%`;
+                star.style.top = `${top}%`;
+                
+                // 随机动画延迟
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                
+                container.appendChild(star);
+            }
+        }
+        
+        // 卡片点击事件 - 修复版本
+        document.querySelectorAll('.card').forEach(card => {
+            const header = card.querySelector('.card-header');
+            
+            header.addEventListener('click', function() {
+                // 关闭其他卡片
+                document.querySelectorAll('.card').forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.classList.remove('active');
+                    }
+                });
+                
+                // 切换当前卡片
+                card.classList.toggle('active');
+            });
+            
+            // 关闭按钮事件
+            const closeBtn = card.querySelector('.close-content');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation(); // 阻止事件冒泡
+                    card.classList.remove('active');
+                });
+            }
+        });
+        
+        // 页面加载完成后执行
+        window.addEventListener('DOMContentLoaded', () => {
+            addRedStars();
+        });
+    </script>
+</body>
+</html>
