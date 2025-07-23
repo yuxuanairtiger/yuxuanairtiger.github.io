@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红耀珠江 | 深汕合作区田寮村红色文化主题展示</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #8b1a1a;
+            --gold: #d4af37;
+            --dark-red: #5d0e0e;
+            --light-red: #b73e3e;
+            --gray: #3d3d3d;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Source Han Sans', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(139, 26, 26, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            background-color: rgba(93, 14, 14, 0.98);
+            padding: 5px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 24px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+        
+        .logo img {
+            height: 40px;
+            filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* 页眉 */
+        header {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(139, 26, 26, 0.7) 0%, rgba(183, 62, 62, 0.4) 100%);
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 80%;
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark-red);
+            padding: 14px 35px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.4s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 关于部分 */
+        section {
+            padding: 100px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark-red);
+            margin-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.03);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            color: var(--dark-red);
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        /* 特色部分 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .feature-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(139, 26, 26, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            color: var(--primary-red);
+            font-size: 32px;
+        }
+        
+        .feature-item h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-red);
+        }
+        
+        .feature-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+        
+        /* 时间轴 */
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-red);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: calc(50% - 40px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -15px;
+            background-color: white;
+            border: 4px solid var(--primary-red);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: calc(50% + 40px);
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -15px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-year {
+            color: var(--primary-red);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            color: var(--dark-red);
+            margin-bottom: 15px;
+        }
+        
+        /* 图库 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* 联系方式 */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+            padding: 40px;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 22px;
+            color: var(--gold);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .contact-text {
+            line-height: 1.7;
+        }
+        
+        .contact-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-red);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .footer-links h4 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-element.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 响应式设计 */
+        @media screen and (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline-container::after {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: -15px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: -15px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--dark-red);
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-star" style="color: var(--gold); font-size: 28px;"></i>
+                <h1>红耀珠江</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#about">田寮村历史</a></li>
+                <li><a href="#features">红色文化</a></li>
+                <li><a href="#timeline">发展历程</a></li>
+                <li><a href="#gallery">红色印记</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 页眉 -->
+    <header id="home">
+        <div class="hero-slideshow">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1576089176179-6edeb8a0119d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1585209828309-0b77fcc67ffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1626785774573-744c44ea5b7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+        </div>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>红耀珠江 <span>深汕合作</span></h1>
+            <p>传承红色基因，弘扬革命精神，田寮村作为深汕合作区的红色文化教育基地，以独特的历史积淀讲述革命故事，展现新时代乡村振兴的崭新面貌。</p>
+            <a href="#about" class="cta-btn">探索红色足迹</a>
+        </div>
+    </header>
+    
+    <!-- 关于部分 -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>田寮村红色历史</h2>
+                <p>探寻革命火种，照亮新时代征程</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img animate-element">
+                    <img src="https://images.unsplash.com/photo-1569335726474-35a5eea2a20c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="田寮村红色文化">
+                </div>
+                <div class="about-text">
+                    <h3>革命历史的见证者</h3>
+                    <p>田寮村，深汕合作区的重要革命历史遗迹地，自20世纪20年代起便点燃了革命的火种。在中国共产党领导下，村民们积极投身革命事业，为民族解放事业作出了重要贡献。</p>
+                    <p>革命战争时期，田寮村曾是东江纵队的重要活动区域，无数仁人志士在这里开展艰苦卓绝的敌后斗争，为华南地区的解放事业谱写了壮丽诗篇。</p>
+                    <p>时至今日，田寮村仍保留着多处革命遗址和文物，成为传承红色基因、开展爱国主义教育的重要基地。这些宝贵的历史遗产见证着革命先烈的英勇事迹，也激励着后人奋勇前行。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 特色部分 -->
+    <section id="features" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>红色文化特色</h2>
+                <p>田寮村红色文化资源丰富多元，形成了独特的教育和文化体验</p>
+            </div>
+            <div class="features">
+                <div class="feature-item animate-element">
+                    <div class="feature-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>革命旧址</h3>
+                    <p>保存完好的革命旧址群，包括指挥部、会议室、后勤站等，真实再现当年革命活动场景，让历史变得触手可及。</p>
+                </div>
+                <div class="feature-item animate-element">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>红色故事</h3>
+                    <p>丰富的历史文献和口述历史，完整记录着革命先烈的英勇事迹，通过生动的讲述让红色精神代代相传。</p>
+                </div>
+                <div class="feature-item animate-element">
+                    <div class="feature-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h3>红色文艺</h3>
+                    <p>融合当地传统文化，创作了一系列红色题材的文艺作品，包括戏剧、音乐、舞蹈等多种形式，使红色文化更具感染力。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 时间轴 -->
+    <section id="timeline" style="background-color: #f8f8f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2>田寮村发展历程</h2>
+                <p>从革命火种到新时代乡村振兴的典范</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">1927</div>
+                    <h3 class="timeline-title">星星之火</h3>
+                    <p>党组织在田寮村建立地下活动点，传播革命思想，发动农民群众，成为早期革命活动的重要据点。</p>
+                </div>
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">1938</div>
+                    <h3 class="timeline-title">抗日烽火</h3>
+                    <p>抗日战争期间，田寮村成立抗日游击队，配合东江纵队开展游击战，成为敌后抗日斗争的重要力量。</p>
+                </div>
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">1949</div>
+                    <h3 class="timeline-title">迎来解放</h3>
+                    <p>田寮村人民欢庆解放，积极参与新中国建设，发扬革命传统，在社会主义建设道路上奋勇前进。</p>
+                </div>
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">2011</div>
+                    <h3 class="timeline-title">深汕合作</h3>
+                    <p>深汕特别合作区正式成立，田寮村被纳入规划范围，开启了发展新篇章，红色文化迎来传承创新。</p>
+                </div>
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">2023</div>
+                    <h3 class="timeline-title">振兴典范</h3>
+                    <p>田寮村红色文化成为深汕合作区的重要文化品牌，实现红色资源保护与乡村振兴的完美融合。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 图库 -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>红色印记</h2>
+                <p>历史的见证，时代的记忆</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-element">
+                    <img src="https://images.unsplash.com/photo-1601599561213-832382fd07f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="革命旧址">
+                    <div class="gallery-overlay">
+                        <h4>革命指挥部旧址</h4>
+                        <p>曾经的抗日游击队秘密指挥中心</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-element">
+                    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="纪念馆">
+                    <div class="gallery-overlay">
+                        <h4>红色文化纪念馆</h4>
+                        <p>展示田寮村革命历史的现代化展馆</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-element">
+                    <img src="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="教育活动">
+                    <div class="gallery-overlay">
+                        <h4>青少年红色教育</h4>
+                        <p>传承红色基因，培育时代新人</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-element">
+                    <img src="https://images.unsplash.com/photo-1501386761578-eac5ca94b757?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="新貌">
+                    <div class="gallery-overlay">
+                        <h4>田寮村新貌</h4>
+                        <p>红色精神引领乡村振兴之路</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 联系方式 -->
+    <section id="contact" style="background-color: #f8f8f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p>欢迎访问田寮村红色文化教育基地</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>田寮村红色文化纪念馆</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>地址</h4>
+                            <p>广东省深汕特别合作区田寮村红色文化教育基地</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>联系电话</h4>
+                            <p>0755-XXXXXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>电子邮箱</h4>
+                            <p>contact@red-tianliao.gov.cn</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>开放时间</h4>
+                            <p>周二至周日 9:00-17:00（周一闭馆）</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>预约参观</h3>
+                    <form>
+                        <input type="text" placeholder="姓名" required>
+                        <input type="email" placeholder="电子邮箱" required>
+                        <input type="tel" placeholder="电话">
+                        <input type="date" placeholder="参观日期">
+                        <textarea placeholder="留言内容"></textarea>
+                        <button type="submit" class="cta-btn">提交预约</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <div class="footer-logo">红耀珠江</div>
+                    <p style="line-height: 1.8; color: #ddd;">田寮村红色文化教育基地是深汕合作区重要的爱国主义教育基地，致力于传承和弘扬红色革命精神，助力新时代乡村振兴。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>导航链接</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">田寮村历史</a></li>
+                        <li><a href="#features">红色文化</a></li>
+                        <li><a href="#timeline">发展历程</a></li>
+                        <li><a href="#gallery">红色印记</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>资源中心</h4>
+                    <ul>
+                        <li><a href="#">红色文献</a></li>
+                        <li><a href="#">革命故事</a></li>
+                        <li><a href="#">历史图片</a></li>
+                        <li><a href="#">视频资料</a></li>
+                        <li><a href="#">研究论文</a></li>
+                        <li><a href="#">教育资料</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>新闻动态</h4>
+                    <ul>
+                        <li><a href="#">最新活动</a></li>
+                        <li><a href="#">媒体报道</a></li>
+                        <li><a href="#">政策解读</a></li>
+                        <li><a href="#">馆务公告</a></li>
+                        <li><a href="#">参观贴士</a></li>
+                        <li><a href="#">志愿者招募</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 深汕合作区田寮村红色文化教育基地 版权所有 | 粤ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 简单的图片轮播
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function changeSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        setInterval(changeSlide, 5000);
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // 滚动触发动画
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-element');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 50) {
+                    element.classList.add('in-view');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // 初始化时执行一次
+        
+        // 移动菜单切换
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+        
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
