@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红耀珠江 | 深汕合作区田寮村红色文化主题展示</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #8b1a1a;
+            --gold: #d4af37;
+            --dark-red: #5d0e0e;
+            --light-red: #b73e3e;
+            --cream: #fdf8f0;
+            --gray: #3d3d3d;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Serif SC', 'Microsoft YaHei', serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #333;
+            overflow-x: hidden;
+            background-color: var(--cream);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(139, 26, 26, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        nav.scrolled {
+            background-color: rgba(93, 14, 14, 0.98);
+            padding: 5px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo-subtitle {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 12px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 8px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--gold);
+            transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* 页眉 */
+        header {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: all 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(139, 26, 26, 0.85) 0%, rgba(183, 62, 62, 0.55) 100%);
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 90%;
+            max-width: 900px;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 62px;
+            margin-bottom: 25px;
+            font-weight: 900;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 1.2s ease;
+            letter-spacing: 1px;
+        }
+        
+        .hero-content h1 span {
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+            position: relative;
+        }
+        
+        .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            animation: highlight 3s infinite linear;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1.4s ease;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--gold);
+            color: var(--dark-red);
+            padding: 16px 42px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            animation: fadeInUp 1.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+        }
+        
+        .cta-btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        /* 波浪分隔线 */
+        .wave-divider {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 3;
+        }
+        
+        .wave-divider svg {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+        }
+        
+        /* 关于部分 */
+        section {
+            padding: 120px 0;
+        }
+        
+        .section-bg {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(139,26,26,0.08) 0%, transparent 80%);
+        }
+        
+        .section-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(139,26,26,0.05) 0%, transparent 80%);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--dark-red);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--gold);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            transform: perspective(1000px) rotateY(-2deg);
+            transition: transform 0.6s ease;
+        }
+        
+        .about-img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid var(--gold);
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 32px;
+            color: var(--dark-red);
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+        
+        .about-text p {
+            font-size: 17px;
+            line-height: 1.9;
+            margin-bottom: 25px;
+            color: var(--gray);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .about-text p::before {
+            content: '•';
+            color: var(--gold);
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+        
+        /* 特色部分 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-item {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px 35px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 4px solid var(--primary-red);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-top: 4px solid var(--gold);
+        }
+        
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background-color: rgba(139, 26, 26, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            font-size: 36px;
+            color: var(--primary-red);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1);
+            background-color: var(--gold);
+            color: white;
+        }
+        
+        .feature-item h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark-red);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .feature-item h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--gold);
+            transition: width 0.4s ease;
+        }
+        
+        .feature-item:hover h3::after {
+            width: 80px;
+        }
+        
+        .feature-item p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+        
+        /* 时间轴 */
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 80px auto;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary-red), var(--gold));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            background-color: white;
+            padding: 35px 40px;
+            border-radius: 12px;
+            width: calc(50% - 60px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+            border-left: 4px solid var(--primary-red);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: -20px;
+            background-color: white;
+            border: 4px solid var(--primary-red);
+            top: 35px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: calc(50% + 40px);
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -20px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-year {
+            color: var(--gold);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: inline-block;
+            background-color: var(--primary-red);
+            padding: 5px 15px;
+            border-radius: 30px;
+            color: white;
+        }
+        
+        .timeline-title {
+            font-size: 26px;
+            color: var(--dark-red);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .timeline-item p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+        
+        /* 图库 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 320px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            transform: translateY(0);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.9));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: white;
+            opacity: 1;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-overlay h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-overlay p {
+            color: #ddd;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease 0.1s;
+        }
+        
+        .gallery-item:hover .gallery-overlay h4,
+        .gallery-item:hover .gallery-overlay p {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* 联系方式 */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+            padding: 50px 40px;
+            border-radius: 12px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--gold);
+            border-radius: 2px;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-icon {
+            font-size: 28px;
+            color: var(--gold);
+            margin-right: 20px;
+            min-width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-text {
+            line-height: 1.8;
+        }
+        
+        .contact-text h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .contact-text p {
+            font-size: 18px;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            font-size: 28px;
+            color: var(--dark-red);
+            margin-bottom: 35px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--gold);
+            border-radius: 2px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 18px;
+            margin-bottom: 25px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            font-family: 'Noto Serif SC', serif;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            outline: none;
+        }
+        
+        .contact-form textarea {
+            height: 180px;
+            resize: vertical;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-red);
+            color: white;
+            padding: 100px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .footer-links h4 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--gold);
+            border-radius: 2px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 16px;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(8px);
+        }
+        
+        .footer-description {
+            color: #bbb;
+            line-height: 1.8;
+            max-width: 350px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            transform: translateY(-5px);
+            color: var(--dark-red);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 15px;
+            color: #aaa;
+            letter-spacing: 1px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes highlight {
+            0% {
+                background-position: -100%;
+            }
+            100% {
+                background-position: 200%;
+            }
+        }
+        
+        .animate-element {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-element.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 响应式设计 */
+        @media screen and (max-width: 1100px) {
+            .hero-content h1 {
+                font-size: 48px;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+        }
+        
+        @media screen and (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline-container::after {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: -15px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: -15px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--dark-red);
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 38px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .feature-item {
+                padding: 30px;
+            }
+            
+            .contact-grid {
+                gap: 30px;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .hero-content p {
+                font-size: 16px;
+            }
+            
+            .cta-btn {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .feature-item h3 {
+                font-size: 22px;
+            }
+            
+            .footer-grid {
+                gap: 40px;
+            }
+        }
+        
+        /* 后台登录页面样式 */
+        .admin-login {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .admin-login h2 {
+            color: var(--dark-red);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .admin-login input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .admin-login button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--dark-red);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .admin-login button:hover {
+            background-color: var(--primary-red);
+        }
+        
+        /* 后台管理页面样式 */
+        .admin-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .admin-title {
+            font-size: 32px;
+            color: var(--dark-red);
+        }
+        
+        .logout-btn {
+            background-color: var(--dark-red);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .reservations-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .reservations-table th {
+            background-color: var(--dark-red);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .reservations-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .reservations-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .reservations-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .status-pending {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        
+        .status-confirmed {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .action-btn {
+            padding: 5px 10px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .confirm-btn {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: var(--gray);
+        }
+        
+        /* 表单提交反馈 */
+        .form-feedback {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .form-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        /* 加载动画 */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #8b1a1a;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-star" style="color: var(--gold); font-size: 32px;"></i>
+                <div class="logo-text">
+                    <h1>红耀珠江</h1>
+                    <div class="logo-subtitle">深汕合作区</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#about">田寮村历史</a></li>
+                <li><a href="#features">红色文化</a></li>
+                <li><a href="#timeline">发展历程</a></li>
+                <li><a href="#gallery">红色印记</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 页眉 -->
+    <header id="home">
+        <div class="hero-slideshow">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1585202900225-6d3ac20a6962?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1591955506264-3f5a6834570a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+        </div>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>红耀珠江 <span>深汕合作</span></h1>
+            <p>传承红色基因，弘扬革命精神，田寮村作为深汕合作区的红色文化教育基地，以独特的历史积淀讲述革命故事，展现新时代乡村振兴的崭新面貌。</p>
+            <a href="#about" class="cta-btn">探索红色足迹 <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+        </div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+                <path d="M0,70 Q300,20 600,70 T1200,70 L1200,100 L0,100 Z" fill="#FFF"></path>
+            </svg>
+        </div>
+    </header>
+    
+    <!-- 关于部分 -->
+    <section id="about" class="section-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2>田寮村红色历史</h2>
+                <p class="section-subtitle">革命精神的火炬在这里点燃，时代的光辉在此传承</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img animate-element">
+                    <img src="https://images.unsplash.com/photo-1569335726474-35a5eea2a20c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="田寮村红色文化">
+                </div>
+                <div class="about-text">
+                    <h3>革命历史的见证者</h3>
+                    <p>田寮村，深汕合作区的重要革命历史遗迹地，自20世纪20年代起便点燃了革命的火种。在中国共产党领导下，村民们积极投身革命事业，为民族解放事业作出了重要贡献。</p>
+                    <p>革命战争时期，田寮村曾是东江纵队的重要活动区域，无数仁人志士在这里开展艰苦卓绝的敌后斗争，为华南地区的解放事业谱写了壮丽诗篇。</p>
+                    <p>时至今日，田寮村仍保留着多处革命遗址和文物，成为传承红色基因、开展爱国主义教育的重要基地。这些宝贵的历史遗产见证着革命先烈的英勇事迹，也激励着后人奋勇前行。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 特色部分 -->
+    <section id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>红色文化特色</h2>
+                <p class="section-subtitle">以史鉴今，薪火相传，打造具有地方特色的红色文化品牌</p>
+            </div>
+            <div class="features">
+                <div class="feature-item animate-element">
+                    <div class="feature-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>革命旧址</h3>
+                    <p>保存完好的革命旧址群，包括指挥部、会议室、后勤站等，真实再现当年革命活动场景，让历史变得触手可及。</p>
+                </div>
+                <div class="feature-item animate-element">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>红色故事</h3>
+                    <p>丰富的历史文献和口述历史，完整记录着革命先烈的英勇事迹，通过生动的讲述让红色精神代代相传。</p>
+                </div>
+                <div class="feature-item animate-element">
+                    <div class="feature-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h3>红色文艺</h3>
+                    <p>融合当地传统文化，创作了一系列红色题材的文艺作品，包括戏剧、音乐、舞蹈等多种形式，使红色文化更具感染力。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 时间轴 -->
+    <section id="timeline" class="section-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2>田寮村发展历程</h2>
+                <p class="section-subtitle">从革命火种到新时代乡村振兴的典范</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">1927</div>
+                    <h3 class="timeline-title">星星之火</h3>
+                    <p>党组织在田寮村建立地下活动点，传播革命思想，发动农民群众，成为早期革命活动的重要据点。</p>
+                </div>
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">1938</div>
+                    <h3 class="timeline-title">抗日烽火</h3>
+                    <p>抗日战争期间，田寮村成立抗日游击队，配合东江纵队开展游击战，成为敌后抗日斗争的重要力量。</p>
+                </div>
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">1949</div>
+                    <h3 class="timeline-title">迎来解放</h3>
+                    <p>田寮村人民欢庆解放，积极参与新中国建设，发扬革命传统，在社会主义建设道路上奋勇前进。</p>
+                </div>
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">2011</div>
+                    <h3 class="timeline-title">深汕合作</h3>
+                    <p>深汕特别合作区正式成立，田寮村被纳入规划范围，开启了发展新篇章，红色文化迎来传承创新。</p>
+                </div>
+                <div class="timeline-item animate-element">
+                    <div class="timeline-year">2023</div>
+                    <h3 class="timeline-title">振兴典范</h3>
+                    <p>田寮村红色文化成为深汕合作区的重要文化品牌，实现红色资源保护与乡村振兴的完美融合。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 图库 -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>红色印记</h2>
+                <p class="section-subtitle">历史的见证，时代的记忆</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-element">
+                    <img src="https://images.unsplash.com/photo-1601599561213-832382fd07f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="革命旧址">
+                    <div class="gallery-overlay">
+                        <h4>革命指挥部旧址</h4>
+                        <p>曾经的抗日游击队秘密指挥中心</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-element">
+                    <img src="https://images.unsplash.com/photo-1501386761578-eac5ca94b757?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="纪念馆">
+                    <div class="gallery-overlay">
+                        <h4>红色文化纪念馆</h4>
+                        <p>展示田寮村革命历史的现代化展馆</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-element">
+                    <img src="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="教育活动">
+                    <div class="gallery-overlay">
+                        <h4>青少年红色教育</h4>
+                        <p>传承红色基因，培育时代新人</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 联系方式 -->
+    <section id="contact" class="section-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p class="section-subtitle">欢迎访问田寮村红色文化教育基地</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>田寮村红色文化纪念馆</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>地址</h4>
+                            <p>广东省深汕特别合作区田寮村红色文化教育基地</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>联系电话</h4>
+                            <p>0755-XXXXXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>电子邮箱</h4>
+                            <p>contact@red-tianliao.gov.cn</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>开放时间</h4>
+                            <p>周二至周日 9:00-17:00（周一闭馆）</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>交通路线</h4>
+                            <p>深汕高速田寮出口直行3公里</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>预约参观</h3>
+                    <div id="formFeedback" class="form-feedback"></div>
+                    <div id="formLoader" class="loader"></div>
+                    <form id="reservationForm">
+                        <input type="text" name="name" placeholder="姓名" required>
+                        <input type="tel" name="phone" placeholder="联系电话" required>
+                        <input type="email" name="email" placeholder="电子邮箱">
+                        <div style="display: flex; gap: 15px;">
+                            <input type="date" name="date" style="flex: 1;" required>
+                            <input type="number" name="people" placeholder="人数" min="1" max="50" style="flex: 1;" required>
+                        </div>
+                        <textarea name="message" placeholder="留言内容"></textarea>
+                        <button type="submit" class="cta-btn">提交预约</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <div class="footer-logo">红耀珠江</div>
+                    <div class="footer-description">田寮村红色文化教育基地是深汕合作区重要的爱国主义教育基地，致力于传承和弘扬红色革命精神，助力新时代乡村振兴。</div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>导航链接</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">田寮村历史</a></li>
+                        <li><a href="#features">红色文化</a></li>
+                        <li><a href="#timeline">发展历程</a></li>
+                        <li><a href="#gallery">红色印记</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>资源中心</h4>
+                    <ul>
+                        <li><a href="#">红色文献</a></li>
+                        <li><a href="#">革命故事</a></li>
+                        <li><a href="#">历史图片</a></li>
+                        <li><a href="#">视频资料</a></li>
+                        <li><a href="#">研究论文</a></li>
+                        <li><a href="#">教育资料</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>新闻动态</h4>
+                    <ul>
+                        <li><a href="#">最新活动</a></li>
+                        <li><a href="#">媒体报道</a></li>
+                        <li><a href="#">政策解读</a></li>
+                        <li><a href="#">馆务公告</a></li>
+                        <li><a href="#">参观贴士</a></li>
+                        <li><a href="#">志愿者招募</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 深汕合作区田寮村红色文化教育基地 版权所有 | 粤ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 后台登录页面（默认隐藏） -->
+    <div id="adminLogin" class="admin-login" style="display:none;">
+        <h2>后台管理系统登录</h2>
+        <input type="password" id="adminPassword" placeholder="请输入管理员密码">
+        <button id="loginBtn">登录</button>
+    </div>
+    
+    <!-- 后台管理页面（默认隐藏） -->
+    <div id="adminPanel" class="admin-container" style="display:none;">
+        <div class="admin-header">
+            <h2 class="admin-title">预约参观管理后台</h2>
+            <button class="logout-btn" id="logoutBtn">退出登录</button>
+        </div>
+        <div id="reservationsContainer">
+            <div id="adminLoader" class="loader"></div>
+            <table class="reservations-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>电话</th>
+                        <th>邮箱</th>
+                        <th>参观日期</th>
+                        <th>人数</th>
+                        <th>留言</th>
+                        <th>状态</th>
+                        <th>提交时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="reservationsList">
+                    <!-- 预约数据将通过JavaScript动态填充 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        // Google Apps Script Web App URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSXyHsYgsgFunTx03aFnO6KCIHy-8uAzqFazZYQrF-d2h8Z6lYjyaK-ttt3wk8qP9q/exec';
+        
+        // 表单提交功能
+        document.getElementById('reservationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // 显示加载状态
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '提交中...';
+            submitBtn.disabled = true;
+            document.getElementById('formLoader').style.display = 'block';
+            
+            // 收集表单数据
+            const formData = {
+                name: this.name.value,
+                phone: this.phone.value,
+                email: this.email.value || '未提供',
+                date: this.date.value,
+                people: this.people.value,
+                message: this.message.value || '无留言',
+                status: '待确认',
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                // 发送数据到Google Apps Script
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.status === 'success') {
+                        showFormFeedback('预约提交成功！我们会尽快与您联系确认。', true);
+                        this.reset();
+                    } else {
+                        showFormFeedback('提交失败: ' + result.message, false);
+                    }
+                } else {
+                    showFormFeedback('提交失败，请稍后再试', false);
+                }
+            } catch (error) {
+                showFormFeedback('网络错误: ' + error.message, false);
+            } finally {
+                // 恢复按钮状态
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                document.getElementById('formLoader').style.display = 'none';
+            }
+        });
+        
+        // 显示表单反馈消息
+        function showFormFeedback(message, isSuccess) {
+            const feedback = document.getElementById('formFeedback');
+            feedback.textContent = message;
+            feedback.className = isSuccess ? 'form-feedback form-success' : 'form-feedback form-error';
+            feedback.style.display = 'block';
+            
+            // 5秒后隐藏消息
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 5000);
+        }
+        
+        // 后台登录功能
+        document.getElementById('loginBtn').addEventListener('click', async function() {
+            const password = document.getElementById('adminPassword').value;
+            
+            // 简单密码验证（实际应用中应使用更安全的方式）
+            if (password === 'admin123') {
+                try {
+                    // 显示加载状态
+                    document.getElementById('adminLoader').style.display = 'block';
+                    
+                    // 显示后台管理面板
+                    document.getElementById('adminLogin').style.display = 'none';
+                    document.getElementById('adminPanel').style.display = 'block';
+                    
+                    // 加载预约数据
+                    await loadReservations();
+                } catch (error) {
+                    alert('加载数据失败: ' + error.message);
+                } finally {
+                    document.getElementById('adminLoader').style.display = 'none';
+                }
+            } else {
+                alert('密码错误，请重试');
+            }
+        });
+        
+        // 退出登录
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('adminLogin').style.display = 'block';
+            document.getElementById('adminPassword').value = '';
+        });
+        
+        // 加载预约数据
+        async function loadReservations() {
+            try {
+                // 显示加载状态
+                document.getElementById('adminLoader').style.display = 'block';
+                
+                // 从Google Apps Script获取数据
+                const response = await fetch(SCRIPT_URL + '?action=getReservations');
+                const reservations = await response.json();
+                
+                const container = document.getElementById('reservationsList');
+                container.innerHTML = '';
+                
+                if (reservations.length === 0) {
+                    container.innerHTML = `<tr><td colspan="9" class="no-data">暂无预约数据</td></tr>`;
+                    return;
+                }
+                
+                // 按时间倒序排列
+                reservations.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                
+                // 填充表格数据
+                reservations.forEach(res => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${res.name}</td>
+                        <td>${res.phone}</td>
+                        <td>${res.email}</td>
+                        <td>${formatDate(res.date)}</td>
+                        <td>${res.people}</td>
+                        <td>${res.message}</td>
+                        <td class="status-${res.status === '已确认' ? 'confirmed' : 'pending'}">${res.status}</td>
+                        <td>${formatDateTime(res.timestamp)}</td>
+                        <td>
+                            <button class="action-btn confirm-btn" data-id="${res.id}">确认</button>
+                            <button class="action-btn delete-btn" data-id="${res.id}">删除</button>
+                        </td>
+                    `;
+                    container.appendChild(row);
+                });
+                
+                // 显示表格
+                document.querySelector('.reservations-table').style.display = 'table';
+                
+                // 添加操作按钮事件监听
+                document.querySelectorAll('.confirm-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        updateReservationStatus(this.dataset.id, '已确认');
+                    });
+                });
+                
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (confirm('确定要删除此预约吗？')) {
+                            deleteReservation(this.dataset.id);
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error('加载预约数据失败:', error);
+                alert('加载预约数据失败: ' + error.message);
+            } finally {
+                document.getElementById('adminLoader').style.display = 'none';
+            }
+        }
+        
+        // 格式化日期
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+        }
+        
+        // 格式化日期时间
+        function formatDateTime(dateTimeString) {
+            const date = new Date(dateTimeString);
+            return `${formatDate(dateTimeString)} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+        }
+        
+        // 更新预约状态
+        async function updateReservationStatus(id, status) {
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        action: 'updateStatus',
+                        id: id,
+                        status: status
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.status === 'success') {
+                        alert('预约状态已更新');
+                        await loadReservations();
+                    } else {
+                        alert('更新失败: ' + result.message);
+                    }
+                } else {
+                    alert('更新失败，请稍后再试');
+                }
+            } catch (error) {
+                console.error('更新预约状态失败:', error);
+                alert('更新预约状态失败: ' + error.message);
+            }
+        }
+        
+        // 删除预约
+        async function deleteReservation(id) {
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        action: 'deleteReservation',
+                        id: id
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.status === 'success') {
+                        alert('预约已删除');
+                        await loadReservations();
+                    } else {
+                        alert('删除失败: ' + result.message);
+                    }
+                } else {
+                    alert('删除失败，请稍后再试');
+                }
+            } catch (error) {
+                console.error('删除预约失败:', error);
+                alert('删除预约失败: ' + error.message);
+            }
+        }
+        
+        // 管理员访问方式（通过URL参数访问后台）
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('admin') === 'true') {
+            document.getElementById('adminLogin').style.display = 'block';
+        }
+        
+        // 图片轮播
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function changeSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        setInterval(changeSlide, 6000);
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // 滚动触发动画
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-element');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('in-view');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+        
+        // 移动菜单切换
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+        
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('active');
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // 更新激活状态
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
